@@ -25,7 +25,7 @@ shared/common.tfvars
 
 # 環境固有のファイル
 .env
-.env.*
+.env.dev
 .env.local
 .env.*.local
 .terraformrc

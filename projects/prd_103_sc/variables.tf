@@ -59,7 +59,7 @@ variable "warning_job_description" {
 variable "s3_bucket_name" {
   description = "S3 bucket name"
   type        = string
-  default     = "your-bucket-name"
+  default     = "sf-to-sn-dummy"
 }
 
 

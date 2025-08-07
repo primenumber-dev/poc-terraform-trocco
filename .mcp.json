@@ -1,0 +1,49 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    },
+     "terraform-mcp-server": {
+      "command": "docker",
+      "args": [
+         "run",
+         "-i",
+         "--rm",
+         "hashicorp/terraform-mcp-server:0.1.0"
+      ]
+   },
+    "fetch": {
+    "command": "docker",
+    "args": ["run",
+             "-i",
+             "--rm",
+             "mcp/fetch"]
+    },
+    "sequentialthinking": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/sequentialthinking"
+      ]
+    },
+      "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}

@@ -1,0 +1,94 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+*.tfplan
+*.tfplan.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# 機密情報を含むファイル
+terraform.tfvars
+*.auto.tfvars
+*.auto.tfvars.json
+secrets.tf
+secrets.auto.tfvars
+**/terraform.tfvars
+**/secrets.tf
+shared/common.tfvars
+
+# 環境固有のファイル
+.env
+.env.*
+.env.local
+.env.*.local
+.terraformrc
+terraform.rc
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Backup and temporary files
+*.bak
+*.backup
+*.old
+*.tmp
+*~
+.#*
+\#*#
+
+# Log files
+*.log
+logs/
+
+# Temporary directories
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Node.js (if using)
+node_modules/
+npm-debug.log*
+
+# Python (if using)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+
+# Go (if using)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib

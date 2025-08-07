@@ -1,0 +1,11 @@
+{
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "github",
+    "playwright",
+    "terraform-mcp-server",
+    "fetch",
+    "sequentialthinking",
+    "context7"
+  ]
+}

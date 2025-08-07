@@ -1,0 +1,16 @@
+{
+    "name": "terraform-env",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "tf",
+    "workspaceFolder": "/terraform",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "hashicorp.terraform",
+                "Anthropic.claude-code",
+                "mhutchie.git-graph",
+                "Infracost.infracost"
+            ]
+        }
+    }
+}

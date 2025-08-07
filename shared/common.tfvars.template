@@ -1,0 +1,14 @@
+# 共通接続設定（全プロジェクトで共有）
+
+# Trocco API configuration
+trocco_api_key = "your_trocco_api_key_here"
+
+# Snowflake connection configuration（共通部分）
+snowflake_account  = "your_snowflake_account_here"
+snowflake_username = "your_snowflake_username_here"
+snowflake_password = "your_snowflake_password_here"
+snowflake_role     = "your_snowflake_role_here"
+
+# aws connection configuration
+aws_access_key = "your_aws_access_key_here"
+aws_secret_key = "your_aws_secret_key_here"

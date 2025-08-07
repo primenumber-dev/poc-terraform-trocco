@@ -1,0 +1,17 @@
+name: trocco
+
+services:
+  tf:
+    container_name: trocco-terraform
+    build: ./Docker/terraform
+    volumes:
+      - .:/terraform
+      - claude_settings:/root/.claude
+    working_dir: /terraform
+    env_file:
+      - .env.dev
+    stdin_open: true
+    tty: true
+
+volumes:
+  claude_settings:

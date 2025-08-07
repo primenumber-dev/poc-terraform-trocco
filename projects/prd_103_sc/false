@@ -1,0 +1,1359 @@
+{
+  "version": 4,
+  "terraform_version": "1.12.2",
+  "serial": 114,
+  "lineage": "ddd44052-d7cc-8edf-e07a-da4d935f1a6a",
+  "outputs": {
+    "contact_job_id": {
+      "value": 370782,
+      "type": "number"
+    },
+    "contactnote_job_id": {
+      "value": 370785,
+      "type": "number"
+    },
+    "pipeline_id": {
+      "value": 35437,
+      "type": "number"
+    },
+    "visit_job_id": {
+      "value": 370783,
+      "type": "number"
+    },
+    "warning_job_id": {
+      "value": 370784,
+      "type": "number"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "terraform_remote_state",
+      "name": "connection_setup",
+      "provider": "provider[\"terraform.io/builtin/terraform\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "backend": "local",
+            "config": {
+              "value": {
+                "path": "../connection-setup/terraform.tfstate"
+              },
+              "type": [
+                "object",
+                {
+                  "path": "string"
+                }
+              ]
+            },
+            "defaults": null,
+            "outputs": {
+              "value": {
+                "s3_connection_id": 2789,
+                "s3_connection_name": "s3_production_connection",
+                "snowflake_connection_id": 3658,
+                "snowflake_connection_name": "snowflake_production_connection"
+              },
+              "type": [
+                "object",
+                {
+                  "s3_connection_id": "number",
+                  "s3_connection_name": "string",
+                  "snowflake_connection_id": "number",
+                  "snowflake_connection_name": "string"
+                }
+              ]
+            },
+            "workspace": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "module": "module.contact_job",
+      "mode": "managed",
+      "type": "trocco_job_definition",
+      "name": "contact_job",
+      "provider": "provider[\"registry.terraform.io/trocco-io/trocco\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Contact note transfer job",
+            "filter_add_time": {
+              "column_name": "time",
+              "time_zone": "Etc/UTC",
+              "timestamp_format": "%Y-%m-%d %H:%M:%S.%N %Z",
+              "type": "timestamp"
+            },
+            "filter_columns": [
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "id",
+                "src": "ID",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_membersid__c",
+                "src": "CST_MEMBERSID__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_firstpurchasedate__c",
+                "src": "CST_FIRSTPURCHASEDATE__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_frequencyofsuits__c",
+                "src": "CST_FREQUENCYOFSUITS__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_concernofsuits__c",
+                "src": "CST_CONCERNOFSUITS__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_numberofsuits__c",
+                "src": "CST_NUMBEROFSUITS__C",
+                "type": "double"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_shoespersistance__c",
+                "src": "CST_SHOESPERSISTANCE__C",
+                "type": "double"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_frequencyofheel__c",
+                "src": "CST_FREQUENCYOFHEEL__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_job__c",
+                "src": "CST_JOB__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "title",
+                "src": "TITLE",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_workplace__c",
+                "src": "CST_WORKPLACE__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_hobby__c",
+                "src": "CST_HOBBY__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_familystructure__c",
+                "src": "CST_FAMILYSTRUCTURE__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "cst_iswarning__c",
+                "src": "CST_ISWARNING__C",
+                "type": "string"
+              }
+            ],
+            "filter_gsub": null,
+            "filter_hashes": null,
+            "filter_masks": null,
+            "filter_rows": null,
+            "filter_string_transforms": null,
+            "filter_unixtime_conversions": null,
+            "id": 370782,
+            "input_option": {
+              "bigquery_input_option": null,
+              "gcs_input_option": null,
+              "google_analytics4_input_option": null,
+              "google_spreadsheets_input_option": null,
+              "http_input_option": null,
+              "kintone_input_option": null,
+              "mysql_input_option": null,
+              "postgresql_input_option": null,
+              "s3_input_option": {
+                "bucket": "your-bucket-name",
+                "csv_parser": {
+                  "allow_extra_columns": false,
+                  "allow_optional_columns": false,
+                  "charset": "UTF-8",
+                  "columns": [
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "ID",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_MEMBERSID__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_FIRSTPURCHASEDATE__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_FREQUENCYOFSUITS__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_CONCERNOFSUITS__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_NUMBEROFSUITS__C",
+                      "type": "double"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_SHOESPERSISTANCE__C",
+                      "type": "double"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_FREQUENCYOFHEEL__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_JOB__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "TITLE",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_WORKPLACE__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_HOBBY__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_FAMILYSTRUCTURE__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "CST_ISWARNING__C",
+                      "type": "string"
+                    }
+                  ],
+                  "comment_line_marker": null,
+                  "default_date": "1970-01-01",
+                  "default_time_zone": "UTC",
+                  "delimiter": ",",
+                  "escape": "\\",
+                  "max_quoted_size_limit": 131072,
+                  "newline": "CRLF",
+                  "null_string": null,
+                  "null_string_enabled": false,
+                  "quote": "\"",
+                  "quotes_in_quoted_fields": "ACCEPT_ONLY_RFC4180_ESCAPED",
+                  "skip_header_lines": 1,
+                  "stop_on_invalid_record": true,
+                  "trim_if_not_quoted": false
+                },
+                "custom_variable_settings": null,
+                "decoder": null,
+                "decompression_type": "default",
+                "excel_parser": null,
+                "incremental_loading_enabled": false,
+                "is_skip_header_line": false,
+                "jsonl_parser": null,
+                "jsonpath_parser": null,
+                "ltsv_parser": null,
+                "parquet_parser": null,
+                "path_match_pattern": "",
+                "path_prefix": "contact/data/*.csv",
+                "region": "ap-northeast-1",
+                "s3_connection_id": 2789,
+                "stop_when_file_not_found": false,
+                "xml_parser": null
+              },
+              "salesforce_input_option": null,
+              "snowflake_input_option": null,
+              "yahoo_ads_api_yss_input_option": null
+            },
+            "input_option_type": "s3",
+            "is_runnable_concurrently": true,
+            "labels": null,
+            "name": "snowflake_production_contact",
+            "notifications": null,
+            "output_option": {
+              "bigquery_output_option": null,
+              "google_spreadsheets_output_option": null,
+              "salesforce_output_option": null,
+              "snowflake_output_option": {
+                "batch_size": 50,
+                "custom_variable_settings": null,
+                "database": "ONWARD_SANDBOX_DB",
+                "default_time_zone": "JST",
+                "delete_stage_on_error": true,
+                "empty_field_as_null": true,
+                "max_retry_wait": 1800000,
+                "mode": "insert",
+                "retry_limit": 12,
+                "retry_wait": 1000,
+                "schema": "RAW",
+                "snowflake_connection_id": 3658,
+                "snowflake_output_option_column_options": [
+                  {
+                    "name": "id",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_membersid__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_firstpurchasedate__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_frequencyofsuits__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_concernofsuits__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_numberofsuits__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "DOUBLE",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_shoespersistance__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "DOUBLE",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_frequencyofheel__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_job__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "title",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_workplace__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_hobby__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_familystructure__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "cst_iswarning__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  }
+                ],
+                "snowflake_output_option_merge_keys": null,
+                "table": "raw_cst_contact",
+                "warehouse": "COMPUTE_WH"
+              }
+            },
+            "output_option_type": "snowflake",
+            "resource_enhancement": "custom_spec",
+            "resource_group_id": null,
+            "retry_limit": 0,
+            "schedules": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "data.terraform_remote_state.connection_setup"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.contactnote_job",
+      "mode": "managed",
+      "type": "trocco_job_definition",
+      "name": "contactnote_job",
+      "provider": "provider[\"registry.terraform.io/trocco-io/trocco\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Contact note transfer job",
+            "filter_add_time": {
+              "column_name": "time",
+              "time_zone": "Etc/UTC",
+              "timestamp_format": "%Y-%m-%d %H:%M:%S.%N %Z",
+              "type": "timestamp"
+            },
+            "filter_columns": [
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "id",
+                "src": "ID",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "membersid__c",
+                "src": "MEMBERSID__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "note__c",
+                "src": "NOTE__C",
+                "type": "string"
+              }
+            ],
+            "filter_gsub": null,
+            "filter_hashes": null,
+            "filter_masks": null,
+            "filter_rows": null,
+            "filter_string_transforms": null,
+            "filter_unixtime_conversions": null,
+            "id": 370785,
+            "input_option": {
+              "bigquery_input_option": null,
+              "gcs_input_option": null,
+              "google_analytics4_input_option": null,
+              "google_spreadsheets_input_option": null,
+              "http_input_option": null,
+              "kintone_input_option": null,
+              "mysql_input_option": null,
+              "postgresql_input_option": null,
+              "s3_input_option": {
+                "bucket": "your-bucket-name",
+                "csv_parser": {
+                  "allow_extra_columns": false,
+                  "allow_optional_columns": false,
+                  "charset": "UTF-8",
+                  "columns": [
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "ID",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "MEMBERSID__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "NOTE__C",
+                      "type": "string"
+                    }
+                  ],
+                  "comment_line_marker": null,
+                  "default_date": "1970-01-01",
+                  "default_time_zone": "UTC",
+                  "delimiter": ",",
+                  "escape": "\\",
+                  "max_quoted_size_limit": 131072,
+                  "newline": "CRLF",
+                  "null_string": null,
+                  "null_string_enabled": false,
+                  "quote": "\"",
+                  "quotes_in_quoted_fields": "ACCEPT_ONLY_RFC4180_ESCAPED",
+                  "skip_header_lines": 1,
+                  "stop_on_invalid_record": true,
+                  "trim_if_not_quoted": false
+                },
+                "custom_variable_settings": null,
+                "decoder": null,
+                "decompression_type": "default",
+                "excel_parser": null,
+                "incremental_loading_enabled": false,
+                "is_skip_header_line": false,
+                "jsonl_parser": null,
+                "jsonpath_parser": null,
+                "ltsv_parser": null,
+                "parquet_parser": null,
+                "path_match_pattern": "",
+                "path_prefix": "contactnote/data/*.csv",
+                "region": "ap-northeast-1",
+                "s3_connection_id": 2789,
+                "stop_when_file_not_found": false,
+                "xml_parser": null
+              },
+              "salesforce_input_option": null,
+              "snowflake_input_option": null,
+              "yahoo_ads_api_yss_input_option": null
+            },
+            "input_option_type": "s3",
+            "is_runnable_concurrently": true,
+            "labels": null,
+            "name": "snowflake_production_contactnote",
+            "notifications": null,
+            "output_option": {
+              "bigquery_output_option": null,
+              "google_spreadsheets_output_option": null,
+              "salesforce_output_option": null,
+              "snowflake_output_option": {
+                "batch_size": 50,
+                "custom_variable_settings": null,
+                "database": "ONWARD_SANDBOX_DB",
+                "default_time_zone": "JST",
+                "delete_stage_on_error": true,
+                "empty_field_as_null": true,
+                "max_retry_wait": 1800000,
+                "mode": "insert",
+                "retry_limit": 12,
+                "retry_wait": 1000,
+                "schema": "RAW",
+                "snowflake_connection_id": 3658,
+                "snowflake_output_option_column_options": [
+                  {
+                    "name": "id",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "membersid__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "note__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  }
+                ],
+                "snowflake_output_option_merge_keys": null,
+                "table": "raw_cst_contactnote__c",
+                "warehouse": "COMPUTE_WH"
+              }
+            },
+            "output_option_type": "snowflake",
+            "resource_enhancement": "custom_spec",
+            "resource_group_id": null,
+            "retry_limit": 0,
+            "schedules": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "data.terraform_remote_state.connection_setup"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.definition",
+      "mode": "managed",
+      "type": "trocco_pipeline_definition",
+      "name": "pipeline",
+      "provider": "provider[\"registry.terraform.io/trocco-io/trocco\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Production SC workflow 1300 pipeline",
+            "execution_timeout": 0,
+            "id": 35437,
+            "is_concurrent_execution_skipped": true,
+            "is_stopped_on_errors": true,
+            "labels": null,
+            "max_retries": 0,
+            "max_task_parallelism": 4,
+            "min_retry_interval": 0,
+            "name": "【prd_103_sc】wf_1300",
+            "notifications": [
+              {
+                "destination_type": "email",
+                "email_config": {
+                  "message": "ワークフローの実行時間が30分を超過しました",
+                  "notification_id": 2240
+                },
+                "notify_when": null,
+                "slack_config": null,
+                "time": 30,
+                "type": "job_time_alert"
+              },
+              {
+                "destination_type": "email",
+                "email_config": {
+                  "message": "ワークフローの実行時間が30分を超過しました",
+                  "notification_id": 2241
+                },
+                "notify_when": null,
+                "slack_config": null,
+                "time": 30,
+                "type": "job_time_alert"
+              },
+              {
+                "destination_type": "email",
+                "email_config": {
+                  "message": "成功したワークフロータスク一覧 ：$SUCCEEDED_TASK_NAMES$\n失敗したワークフロータスク一覧 ：$ERROR_TASK_NAMES$",
+                  "notification_id": 2240
+                },
+                "notify_when": "failed",
+                "slack_config": null,
+                "time": null,
+                "type": "job_execution"
+              },
+              {
+                "destination_type": "email",
+                "email_config": {
+                  "message": "成功したワークフロータスク一覧 ：$SUCCEEDED_TASK_NAMES$\n失敗したワークフロータスク一覧 ：$ERROR_TASK_NAMES$",
+                  "notification_id": 2241
+                },
+                "notify_when": "failed",
+                "slack_config": null,
+                "time": null,
+                "type": "job_execution"
+              }
+            ],
+            "resource_group_id": null,
+            "schedules": [
+              {
+                "day": null,
+                "day_of_week": null,
+                "frequency": "daily",
+                "hour": 1,
+                "minute": 30,
+                "time_zone": "Asia/Tokyo"
+              }
+            ],
+            "task_dependencies": [
+              {
+                "destination": "t5",
+                "source": "t1"
+              },
+              {
+                "destination": "t5",
+                "source": "t2"
+              },
+              {
+                "destination": "t5",
+                "source": "t3"
+              },
+              {
+                "destination": "t5",
+                "source": "t4"
+              }
+            ],
+            "tasks": [
+              {
+                "bigquery_data_check_config": null,
+                "http_request_config": null,
+                "key": "t1",
+                "redshift_data_check_config": null,
+                "slack_notification_config": null,
+                "snowflake_data_check_config": null,
+                "tableau_data_extraction_config": null,
+                "task_identifier": 1,
+                "trocco_azure_synapse_analytics_datamart_config": null,
+                "trocco_bigquery_datamart_config": null,
+                "trocco_dbt_config": null,
+                "trocco_pipeline_config": null,
+                "trocco_redshift_datamart_config": null,
+                "trocco_snowflake_datamart_config": null,
+                "trocco_transfer_bulk_config": null,
+                "trocco_transfer_config": {
+                  "custom_variable_loop": null,
+                  "definition_id": 370782
+                },
+                "type": "trocco_transfer"
+              },
+              {
+                "bigquery_data_check_config": null,
+                "http_request_config": null,
+                "key": "t2",
+                "redshift_data_check_config": null,
+                "slack_notification_config": null,
+                "snowflake_data_check_config": null,
+                "tableau_data_extraction_config": null,
+                "task_identifier": 2,
+                "trocco_azure_synapse_analytics_datamart_config": null,
+                "trocco_bigquery_datamart_config": null,
+                "trocco_dbt_config": null,
+                "trocco_pipeline_config": null,
+                "trocco_redshift_datamart_config": null,
+                "trocco_snowflake_datamart_config": null,
+                "trocco_transfer_bulk_config": null,
+                "trocco_transfer_config": {
+                  "custom_variable_loop": null,
+                  "definition_id": 370785
+                },
+                "type": "trocco_transfer"
+              },
+              {
+                "bigquery_data_check_config": null,
+                "http_request_config": null,
+                "key": "t3",
+                "redshift_data_check_config": null,
+                "slack_notification_config": null,
+                "snowflake_data_check_config": null,
+                "tableau_data_extraction_config": null,
+                "task_identifier": 3,
+                "trocco_azure_synapse_analytics_datamart_config": null,
+                "trocco_bigquery_datamart_config": null,
+                "trocco_dbt_config": null,
+                "trocco_pipeline_config": null,
+                "trocco_redshift_datamart_config": null,
+                "trocco_snowflake_datamart_config": null,
+                "trocco_transfer_bulk_config": null,
+                "trocco_transfer_config": {
+                  "custom_variable_loop": null,
+                  "definition_id": 370783
+                },
+                "type": "trocco_transfer"
+              },
+              {
+                "bigquery_data_check_config": null,
+                "http_request_config": null,
+                "key": "t4",
+                "redshift_data_check_config": null,
+                "slack_notification_config": null,
+                "snowflake_data_check_config": null,
+                "tableau_data_extraction_config": null,
+                "task_identifier": 4,
+                "trocco_azure_synapse_analytics_datamart_config": null,
+                "trocco_bigquery_datamart_config": null,
+                "trocco_dbt_config": null,
+                "trocco_pipeline_config": null,
+                "trocco_redshift_datamart_config": null,
+                "trocco_snowflake_datamart_config": null,
+                "trocco_transfer_bulk_config": null,
+                "trocco_transfer_config": {
+                  "custom_variable_loop": null,
+                  "definition_id": 370784
+                },
+                "type": "trocco_transfer"
+              },
+              {
+                "bigquery_data_check_config": null,
+                "http_request_config": null,
+                "key": "t5",
+                "redshift_data_check_config": null,
+                "slack_notification_config": null,
+                "snowflake_data_check_config": null,
+                "tableau_data_extraction_config": null,
+                "task_identifier": 5,
+                "trocco_azure_synapse_analytics_datamart_config": null,
+                "trocco_bigquery_datamart_config": null,
+                "trocco_dbt_config": {
+                  "definition_id": 944
+                },
+                "trocco_pipeline_config": null,
+                "trocco_redshift_datamart_config": null,
+                "trocco_snowflake_datamart_config": null,
+                "trocco_transfer_bulk_config": null,
+                "trocco_transfer_config": null,
+                "type": "trocco_dbt"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "data.terraform_remote_state.connection_setup",
+            "module.contact_job.trocco_job_definition.contact_job",
+            "module.contactnote_job.trocco_job_definition.contactnote_job",
+            "module.visit_job.trocco_job_definition.visit_job",
+            "module.warning_job.trocco_job_definition.warning_job"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.visit_job",
+      "mode": "managed",
+      "type": "trocco_job_definition",
+      "name": "visit_job",
+      "provider": "provider[\"registry.terraform.io/trocco-io/trocco\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Visit data transfer job",
+            "filter_add_time": {
+              "column_name": "time",
+              "time_zone": "Etc/UTC",
+              "timestamp_format": "%Y-%m-%d %H:%M:%S.%N %Z",
+              "type": "timestamp"
+            },
+            "filter_columns": [
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "id",
+                "src": "ID",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "membersid__c",
+                "src": "MEMBERSID__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "orderdate__c",
+                "src": "ORDERDATE__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "motive__c",
+                "src": "MOTIVE__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "note__c",
+                "src": "NOTE__C",
+                "type": "string"
+              }
+            ],
+            "filter_gsub": null,
+            "filter_hashes": null,
+            "filter_masks": null,
+            "filter_rows": null,
+            "filter_string_transforms": null,
+            "filter_unixtime_conversions": null,
+            "id": 370783,
+            "input_option": {
+              "bigquery_input_option": null,
+              "gcs_input_option": null,
+              "google_analytics4_input_option": null,
+              "google_spreadsheets_input_option": null,
+              "http_input_option": null,
+              "kintone_input_option": null,
+              "mysql_input_option": null,
+              "postgresql_input_option": null,
+              "s3_input_option": {
+                "bucket": "your-bucket-name",
+                "csv_parser": {
+                  "allow_extra_columns": false,
+                  "allow_optional_columns": false,
+                  "charset": "UTF-8",
+                  "columns": [
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "ID",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "MEMBERSID__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "ORDERDATE__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "MOTIVE__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "NOTE__C",
+                      "type": "string"
+                    }
+                  ],
+                  "comment_line_marker": null,
+                  "default_date": "1970-01-01",
+                  "default_time_zone": "UTC",
+                  "delimiter": ",",
+                  "escape": "\\",
+                  "max_quoted_size_limit": 131072,
+                  "newline": "CRLF",
+                  "null_string": null,
+                  "null_string_enabled": false,
+                  "quote": "\"",
+                  "quotes_in_quoted_fields": "ACCEPT_ONLY_RFC4180_ESCAPED",
+                  "skip_header_lines": 1,
+                  "stop_on_invalid_record": true,
+                  "trim_if_not_quoted": false
+                },
+                "custom_variable_settings": null,
+                "decoder": null,
+                "decompression_type": "default",
+                "excel_parser": null,
+                "incremental_loading_enabled": false,
+                "is_skip_header_line": false,
+                "jsonl_parser": null,
+                "jsonpath_parser": null,
+                "ltsv_parser": null,
+                "parquet_parser": null,
+                "path_match_pattern": "",
+                "path_prefix": "visit/data/*.csv",
+                "region": "ap-northeast-1",
+                "s3_connection_id": 2789,
+                "stop_when_file_not_found": false,
+                "xml_parser": null
+              },
+              "salesforce_input_option": null,
+              "snowflake_input_option": null,
+              "yahoo_ads_api_yss_input_option": null
+            },
+            "input_option_type": "s3",
+            "is_runnable_concurrently": true,
+            "labels": null,
+            "name": "snowflake_production_visit",
+            "notifications": null,
+            "output_option": {
+              "bigquery_output_option": null,
+              "google_spreadsheets_output_option": null,
+              "salesforce_output_option": null,
+              "snowflake_output_option": {
+                "batch_size": 50,
+                "custom_variable_settings": null,
+                "database": "ONWARD_SANDBOX_DB",
+                "default_time_zone": "JST",
+                "delete_stage_on_error": true,
+                "empty_field_as_null": true,
+                "max_retry_wait": 1800000,
+                "mode": "insert",
+                "retry_limit": 12,
+                "retry_wait": 1000,
+                "schema": "RAW",
+                "snowflake_connection_id": 3658,
+                "snowflake_output_option_column_options": [
+                  {
+                    "name": "id",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "membersid__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "orderdate__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "motive__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "note__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  }
+                ],
+                "snowflake_output_option_merge_keys": null,
+                "table": "raw_cst_visit__c",
+                "warehouse": "COMPUTE_WH"
+              }
+            },
+            "output_option_type": "snowflake",
+            "resource_enhancement": "custom_spec",
+            "resource_group_id": null,
+            "retry_limit": 0,
+            "schedules": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "data.terraform_remote_state.connection_setup"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.warning_job",
+      "mode": "managed",
+      "type": "trocco_job_definition",
+      "name": "warning_job",
+      "provider": "provider[\"registry.terraform.io/trocco-io/trocco\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Warning note transfer job",
+            "filter_add_time": {
+              "column_name": "time",
+              "time_zone": "Etc/UTC",
+              "timestamp_format": "%Y-%m-%d %H:%M:%S.%N %Z",
+              "type": "timestamp"
+            },
+            "filter_columns": [
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "id",
+                "src": "ID",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "membersid__c",
+                "src": "MEMBERSID__C",
+                "type": "string"
+              },
+              {
+                "default": null,
+                "format": null,
+                "json_expand_columns": null,
+                "json_expand_enabled": false,
+                "json_expand_keep_base_column": false,
+                "name": "note__c",
+                "src": "NOTE__C",
+                "type": "string"
+              }
+            ],
+            "filter_gsub": null,
+            "filter_hashes": null,
+            "filter_masks": null,
+            "filter_rows": null,
+            "filter_string_transforms": null,
+            "filter_unixtime_conversions": null,
+            "id": 370784,
+            "input_option": {
+              "bigquery_input_option": null,
+              "gcs_input_option": null,
+              "google_analytics4_input_option": null,
+              "google_spreadsheets_input_option": null,
+              "http_input_option": null,
+              "kintone_input_option": null,
+              "mysql_input_option": null,
+              "postgresql_input_option": null,
+              "s3_input_option": {
+                "bucket": "your-bucket-name",
+                "csv_parser": {
+                  "allow_extra_columns": false,
+                  "allow_optional_columns": false,
+                  "charset": "UTF-8",
+                  "columns": [
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "ID",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "MEMBERSID__C",
+                      "type": "string"
+                    },
+                    {
+                      "date": null,
+                      "format": null,
+                      "name": "NOTE__C",
+                      "type": "string"
+                    }
+                  ],
+                  "comment_line_marker": null,
+                  "default_date": "1970-01-01",
+                  "default_time_zone": "UTC",
+                  "delimiter": ",",
+                  "escape": "\\",
+                  "max_quoted_size_limit": 131072,
+                  "newline": "CRLF",
+                  "null_string": null,
+                  "null_string_enabled": false,
+                  "quote": "\"",
+                  "quotes_in_quoted_fields": "ACCEPT_ONLY_RFC4180_ESCAPED",
+                  "skip_header_lines": 1,
+                  "stop_on_invalid_record": true,
+                  "trim_if_not_quoted": false
+                },
+                "custom_variable_settings": null,
+                "decoder": null,
+                "decompression_type": "default",
+                "excel_parser": null,
+                "incremental_loading_enabled": false,
+                "is_skip_header_line": false,
+                "jsonl_parser": null,
+                "jsonpath_parser": null,
+                "ltsv_parser": null,
+                "parquet_parser": null,
+                "path_match_pattern": "",
+                "path_prefix": "warning/data/*.csv",
+                "region": "ap-northeast-1",
+                "s3_connection_id": 2789,
+                "stop_when_file_not_found": false,
+                "xml_parser": null
+              },
+              "salesforce_input_option": null,
+              "snowflake_input_option": null,
+              "yahoo_ads_api_yss_input_option": null
+            },
+            "input_option_type": "s3",
+            "is_runnable_concurrently": true,
+            "labels": null,
+            "name": "snowflake_production_warning",
+            "notifications": null,
+            "output_option": {
+              "bigquery_output_option": null,
+              "google_spreadsheets_output_option": null,
+              "salesforce_output_option": null,
+              "snowflake_output_option": {
+                "batch_size": 50,
+                "custom_variable_settings": null,
+                "database": "ONWARD_SANDBOX_DB",
+                "default_time_zone": "JST",
+                "delete_stage_on_error": true,
+                "empty_field_as_null": true,
+                "max_retry_wait": 1800000,
+                "mode": "insert",
+                "retry_limit": 12,
+                "retry_wait": 1000,
+                "schema": "RAW",
+                "snowflake_connection_id": 3658,
+                "snowflake_output_option_column_options": [
+                  {
+                    "name": "id",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "membersid__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  },
+                  {
+                    "name": "note__c",
+                    "timestamp_format": null,
+                    "timezone": null,
+                    "type": "STRING",
+                    "value_type": null
+                  }
+                ],
+                "snowflake_output_option_merge_keys": null,
+                "table": "raw_cst_warningnote__c",
+                "warehouse": "COMPUTE_WH"
+              }
+            },
+            "output_option_type": "snowflake",
+            "resource_enhancement": "custom_spec",
+            "resource_group_id": null,
+            "retry_limit": 0,
+            "schedules": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "data.terraform_remote_state.connection_setup"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

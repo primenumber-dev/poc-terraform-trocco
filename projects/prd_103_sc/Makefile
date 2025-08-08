@@ -40,5 +40,13 @@ destroy:
 clean:
 	find . -name "*.backup" -delete
 
-.PHONY: apply plan init validate fmt state rm destroy clean
+# Run tflint with fix option
+fix:
+	tflint --init
+	tflint --fix
 
+lint:
+	tflint --init
+	tflint
+
+.PHONY: apply plan init validate fmt state rm output destroy clean fix lint

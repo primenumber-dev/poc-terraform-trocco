@@ -9,7 +9,9 @@
                 "hashicorp.terraform",
                 "Anthropic.claude-code",
                 "mhutchie.git-graph",
-                "Infracost.infracost"
+                "Infracost.infracost",
+                "github.vscode-github-actions",
+                "ms-vscode.makefile-tools"
             ]
         }
     }

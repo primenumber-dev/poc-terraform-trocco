@@ -24,7 +24,6 @@ secrets.auto.tfvars
 shared/common.tfvars
 
 # 環境固有のファイル
-.env
 .env.dev
 .env.local
 .env.*.local

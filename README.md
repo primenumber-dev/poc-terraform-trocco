@@ -12,13 +12,12 @@ TROCCOデータパイプラインプラットフォーム用のTerraform構成�
 # 環境変数ファイルを作成
 cp .env.dev.template .env.dev
 # .env.devファイルを編集して実際のGitHubトークンを設定
+# 任意：MCPサーバー接続時に必要になる
 
 # 共通設定ファイルを作成
 cp shared/common.tfvars.template shared/common.tfvars
 # shared/common.tfvarsファイルを編集して実際の認証情報を設定
 ```
-
-**重要**: これらのファイルには機密情報が含まれるため、`.gitignore`で除外されています。
 
 ## セットアップ手順
 
@@ -59,7 +58,7 @@ make apply
 make output  # 通知IDを確認
 ```
 
-### 3. ビジネスロジックの設定
+### 3. データ転送ジョブとパイプラインの設定
 
 データ転送ジョブとパイプラインを設定します：
 
@@ -84,27 +83,3 @@ make apply
 - `make clean` - バックアップファイル削除
 - `make output` - アウトプット値表示（connection-setup, notification-setup）
 - `make destroy` - インフラ削除（バックアップなし）
-
-## 設定ファイル詳細
-
-### shared/common.tfvars（共通設定）
-
-全プロジェクトで共有する認証情報と設定：
-
-```hcl
-# 共通接続設定（全プロジェクトで共有）
-
-# Trocco API configuration
-trocco_api_key = ""
-
-# Snowflake connection configuration（共通部分）
-snowflake_account  = ""
-snowflake_username = ""
-snowflake_password = ""
-snowflake_role     = ""
-
-
-# aws connection configuration
-aws_access_key     = ""
-aws_secret_key     = ""
-```
